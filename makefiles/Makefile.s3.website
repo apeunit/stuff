@@ -11,12 +11,16 @@ list:
 
 clean:
 	@echo remove $(OUTPUTFOLDER) folder
-	@rm -rf dist
-	@echo done
+	rm -rf $(OUTPUTFOLDER)
+	@echo done 
 
 build:
 	@echo build release
 	npm install &&  npm run build
+	# uncomment the following lines if you want to create
+	# a version file to be distributed with the build
+	# $(eval GIT_VERSION = $(shell git describe --always --tags))
+	# echo $(GIT_VERSION) > $(OUTPUTFOLDER)/version
 	@echo done
 
 deploy:
