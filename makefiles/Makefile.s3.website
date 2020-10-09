@@ -23,5 +23,5 @@ deploy:
 	@echo deploy S3
 	aws --profile $(AWS_PROFILE) s3 sync --acl public-read ./$(OUTPUTFOLDER) $(S3_BUCKET)
 	aws --profile $(AWS_PROFILE) cloudfront create-invalidation --distribution-id $(CF_DISTRIBUTION_ID) --paths '/*'
-	@echo deploy S3 done (wait a minute for the cache to be invalidated)
+	@echo "deploy S3 done (wait a minute for the cache to be invalidated)"
 
